@@ -14,7 +14,7 @@ class _LoginPageState extends State<LoginPage> {
   final _formkey = GlobalKey<FormState>();
 
   moveToHome(BuildContext context) async {
-    if(_formkey.currentState!.validate()) {
+    if (_formkey.currentState!.validate()) {
       setState(() {
         changeButton = true;
       });
@@ -47,9 +47,10 @@ class _LoginPageState extends State<LoginPage> {
                       children: [
                         TextFormField(
                           decoration: const InputDecoration(
-                              hintText: "Enter Username", labelText: "Username"),
-                          validator: (value){
-                            if(value!.isEmpty)
+                              hintText: "Enter Username",
+                              labelText: "Username"),
+                          validator: (value) {
+                            if (value!.isEmpty)
                               return "Username should not be empty";
                             else
                               return null;
@@ -65,11 +66,12 @@ class _LoginPageState extends State<LoginPage> {
                         TextFormField(
                           obscureText: true,
                           decoration: const InputDecoration(
-                              hintText: "Enter Password", labelText: "Password"),
-                          validator: (value){
-                            if(value!.isEmpty)
+                              hintText: "Enter Password",
+                              labelText: "Password"),
+                          validator: (value) {
+                            if (value!.isEmpty)
                               return "Passowrd should not be empty";
-                            else if(value.length<6)
+                            else if (value.length < 6)
                               return "The password length must not be less than 6";
                             else
                               return null;
@@ -80,7 +82,8 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         Material(
                           color: Colors.deepPurple,
-                          borderRadius: BorderRadius.circular(changeButton ? 50 : 8),
+                          borderRadius:
+                              BorderRadius.circular(changeButton ? 50 : 8),
                           child: InkWell(
                             onTap: () {
                               moveToHome(context);
@@ -90,8 +93,18 @@ class _LoginPageState extends State<LoginPage> {
                               width: changeButton ? 50 : 100,
                               height: 50,
                               alignment: Alignment.center,
-
-                              child: changeButton ? const Icon(Icons.done, color: Colors.white,) : const Text("Login", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),),
+                              child: changeButton
+                                  ? const Icon(
+                                      Icons.done,
+                                      color: Colors.white,
+                                    )
+                                  : const Text(
+                                      "Login",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18),
+                                    ),
                             ),
                           ),
                         ),
